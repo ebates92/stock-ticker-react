@@ -3153,7 +3153,6 @@ const SymbolsList = [
 const StockDropdown = (props) => (
     <Typeahead
     clearButton
-    defaultSelected={SymbolsList.slice(0, 5)}
     labelKey="name"
     multiple
     options={SymbolsList}

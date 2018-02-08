@@ -3,13 +3,13 @@ import StockSection from './stocksection'
 
 
 const StockSections = (props) => {
+    console.log('StockSections')
     console.log(props)
     let stockNamesArray = Object.keys(props.data).map((a) => {return a})
     const stockArray = stockNamesArray.map((symbol,i) => {
         // returns information to fill the stockArray
-        console.log(props.data[symbol].news)
         return (
-            <StockSection data={props.data[symbol]} symbol={symbol} index={i}/>
+            <StockSection data={props.data[symbol]} symbol={symbol} index={i} wantNews={props.wantNews}/>
         )
     })
 

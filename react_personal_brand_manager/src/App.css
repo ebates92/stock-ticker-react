@@ -85,3 +85,20 @@
   font-size: .75rem;
 }
 
+.news-false {
+  display: none;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 1rem;
+  align-content: center;
+}
+
+.news-toggle {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
