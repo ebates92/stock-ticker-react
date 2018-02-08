@@ -3154,9 +3154,11 @@ const StockDropdown = (props) => (
     <Typeahead
     clearButton
     labelKey="name"
+    defaultSelected={props.symbols}
     multiple
     options={SymbolsList}
     placeholder="Choose a symbol..."
+    onChange = {props.symbolHandler}
   />
 )
 export default StockDropdown;
