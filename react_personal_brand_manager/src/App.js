@@ -27,6 +27,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to your Stock Tracker</h1>
         </header>
+        <div className='nav'>
+          <div className='stock performance'>Stock Performance</div>
+          <div className='Investments'>Investments</div>
+        </div>
         <div className='options'>
           <StockDropdown symbols={this.state.symbols} symbolHandler={this.symbolHandler}/>
           <form>
@@ -47,19 +51,36 @@ class App extends Component {
   }
 
   symbolHandler = (event) => {
-    this.setState({
-      symbols: event
-    },() => this.updateURL(this.state.symbols))
+    console.log('made it to the top')
+      let newSymbols = event.join()
+      let newURL = `https://api.iextrading.com/1.0/stock/market/batch?symbols=${newSymbols}&types=quote,news,chart&range=1m&last=5`
+      let newData = {}
+      // fetches new API data
+      fetch(newURL)
+        .then(resp => resp.json())
+        .then(stockData => {
+          newData = stockData
+          this.setState({
+            symbols: event,
+            URL_iexTrading: newURL,
+            data: newData
+          })
+        })
   }
 
-  updateURL = (symbols) => {
-    console.log(symbols)
-      let newSymbols = symbols.join()
-      this.setState({
-        URL_iexTrading: `https://api.iextrading.com/1.0/stock/market/batch?symbols=${newSymbols}&types=quote,news,chart&range=1m&last=5`
-      })
-  }
   
+  // componentDidMount() {
+  //   console.log('interval')
+  //   setInterval(() => {
+  //     fetch(this.state.URL_iexTrading)
+  //         .then(resp => resp.json())
+  //         .then(stockData => {
+  //           this.setState({
+  //             data: stockData
+  //           })
+  //         })
+  //   },1000);
+  // }
   
   componentDidMount() {
     fetch(this.state.URL_iexTrading)
@@ -70,17 +91,6 @@ class App extends Component {
       })
     })
   }
-    
-  
-  // setInterval(() => {
-  //     fetch(URL_iexTrading)
-  //         .then(resp => resp.json())
-  //         .then(stockData => {
-  //             console.log(stockData)
-  //             ReactDOM.render(<App data={stockData}/>, document.getElementById('root'));
-  //             registerServiceWorker();
-  //         })
-  // },10000);
 
 }
 
