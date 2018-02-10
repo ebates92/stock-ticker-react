@@ -5,6 +5,7 @@ import SymbolRows from './symbol-rows'
 
 
 const Investments = (props) => {
+    
     return (
         <React.Fragment>
             <div className='options'>

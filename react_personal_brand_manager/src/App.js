@@ -23,6 +23,48 @@ class App extends Component {
       watching_symbols: ['VMW','ADBE','FB','NVDA','NFLX','PSTG','WMT','ROBO','BOTZ','VIT','VGT'],
 
       // Stock Investment Props
+      investment_data: {},
+      investment_URL_iexTrading: 'https://api.iextrading.com/1.0/stock/market/batch?symbols=vmw,adbe,amzn,fb,nvda,ntdoy,nflx,pstg,wmt,robo,botz,vti,vgt&types=quote,news,chart&range=1m&last=5',
+      investment_symbols: ['VMW','ADBE','FB','NVDA','NFLX','PSTG','WMT','ROBO','BOTZ','VIT','VGT'],
+      investment_history: {
+        'VMW': [
+          { date_purchased: '12/30/2016',
+          quantity: 10,
+          price: 120,
+          status: 'own'
+          },
+          { date_purchased: '09/30/2017',
+          quantity: 5,
+          price: 150,
+          status: 'own'
+          },
+          { date_purchased: '1/30/2018',
+          quantity: 8,
+          price: 100,
+          status: 'sold'
+          },
+        ],
+        'NVDA': [
+          { date_purchased: '12/30/2017',
+          quantity: 1,
+          price: 50,
+          status: 'own'
+          },
+          { date_purchased: '09/30/2017',
+          quantity: 8,
+          price: 200,
+          status: 'own'
+          },
+          { date_purchased: '1/30/2018',
+          quantity: 11,
+          price: 250,
+          status: 'sold'
+          },
+        ],
+      }
+
+
+
     }
   }
 
@@ -77,7 +119,6 @@ class App extends Component {
   }
 
   symbolHandler = (event) => {
-    console.log('made it to the top')
       let newSymbols = event.join()
       let newURL = `https://api.iextrading.com/1.0/stock/market/batch?symbols=${newSymbols}&types=quote,news,chart&range=1m&last=5`
       let newData = {}
