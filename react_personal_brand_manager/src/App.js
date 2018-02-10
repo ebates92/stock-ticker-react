@@ -5,6 +5,7 @@ import StockSection from './stock_performance/stocksections';
 import StockDropdown from './stock_performance/stock-dropdown';
 import axios from 'axios'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import Investments from './investments/investment-app'
 
 
 
@@ -14,10 +15,14 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = {
+
+      // Stock Performance Props
       wantNews: false,
-      data: {},
-      URL_iexTrading: 'https://api.iextrading.com/1.0/stock/market/batch?symbols=vmw,adbe,amzn,fb,nvda,ntdoy,nflx,pstg,wmt,robo,botz,vti,vgt&types=quote,news,chart&range=1m&last=5',
-      symbols: ['VMW','ADBE','FB','NVDA','NFLX','PSTG','WMT','ROBO','BOTZ','VIT','VGT']
+      watching_data: {},
+      watching_URL_iexTrading: 'https://api.iextrading.com/1.0/stock/market/batch?symbols=vmw,adbe,amzn,fb,nvda,ntdoy,nflx,pstg,wmt,robo,botz,vti,vgt&types=quote,news,chart&range=1m&last=5',
+      watching_symbols: ['VMW','ADBE','FB','NVDA','NFLX','PSTG','WMT','ROBO','BOTZ','VIT','VGT'],
+
+      // Stock Investment Props
     }
   }
 
@@ -34,7 +39,8 @@ class App extends Component {
             <div className='Investments'><Link to='/investments'>Investments</Link></div>
           </div>
 
-          <Route exact path='/' component = {this.StockPerformance}/>
+          <Route exact path='/' component={this.StockPerformance}/>
+          <Route exact path='/investments' component={this.InvestmentApp}/>
         </div>
       </Router>
     );
@@ -45,14 +51,20 @@ class App extends Component {
   StockPerformance = () => (
     <React.Fragment>
       <div className='options'>
-        <StockDropdown symbols={this.state.symbols} symbolHandler={this.symbolHandler}/>
+        <StockDropdown symbols={this.state.watching_symbols} symbolHandler={this.symbolHandler}/>
         <form>
           <label className="news-toggle">Want news? <input name='want-news' type='checkbox' onChange = {this.newsHandler}/></label>
         </form>
       </div>
       <div className="App-intro">
-        <StockSection data={this.state.data} wantNews = {this.state.wantNews}/>
+        <StockSection data={this.state.watching_data} wantNews = {this.state.wantNews} />
       </div>
+    </React.Fragment>
+  )
+
+  InvestmentApp = () => (
+    <React.Fragment>
+            <Investments data={this.state.watching_data} />
     </React.Fragment>
   )
 
@@ -75,9 +87,9 @@ class App extends Component {
         .then(stockData => {
           newData = stockData
           this.setState({
-            symbols: event,
-            URL_iexTrading: newURL,
-            data: newData
+            watching_symbols: event,
+            watching_URL_iexTrading: newURL,
+            watching_data: newData
           })
         })
   }
@@ -97,11 +109,11 @@ class App extends Component {
   // }
   
   componentDidMount() {
-    fetch(this.state.URL_iexTrading)
+    fetch(this.state.watching_URL_iexTrading)
     .then(resp => resp.json())
     .then(stockData => {
       this.setState({
-        data: stockData
+        watching_data: stockData
       })
     })
   }
