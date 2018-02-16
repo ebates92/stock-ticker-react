@@ -15,7 +15,7 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 2rem;
 }
 
 .App-intro {
@@ -26,6 +26,48 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+/* navigation */
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+  background-color: grey;
+  color: white;
+}
+
+/* options */
+
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 1rem;
+  align-content: center;
+  background-color: lightgray;
+}
+
+.stock-select {
+  max-width: 50%;
+}
+
+.options > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.news-toggle {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+/* stocks */
 
 .stocks-container {
   /* display: flex;
@@ -87,18 +129,4 @@
 
 .news-false {
   display: none;
-}
-
-.options {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding-top: 1rem;
-  align-content: center;
-}
-
-.news-toggle {
-  text-align: center;
-  margin-top: auto;
-  margin-bottom: auto;
 }

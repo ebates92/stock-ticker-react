@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import News from './news'
 
 const StockSection = (props) => {
-    console.log('StockSection')
-    console.log(props)
     let changePercent = (Math.round(props.data.quote.changePercent*10000))/100
     let isNegative = ((changePercent < 0) ? 'change negative': 'change positive')
     let oneMonthChange = Math.round(((props.data.quote.iexRealtimePrice - props.data.chart[0].close)/props.data.chart[0].close)*10000)/100
