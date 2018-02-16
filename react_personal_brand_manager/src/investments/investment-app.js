@@ -52,6 +52,12 @@ class Investments extends Component {
         }
     }
 
+    //  Investment App -->
+    //  Symbol Rows -->
+    //  Symbol Row -->
+    //  Purchase Rows -->
+    //  Purchase Row
+
     render () {
         return (
             <React.Fragment>
@@ -59,7 +65,18 @@ class Investments extends Component {
                     <button type="button">Add a Stock Purchase</button>
                     <button type="button">Edit Stock Purchases</button>
                 </div>
-                <SymbolRows />
+                <div className='investments-container'>
+                    <div className='investment-symbol-container'>
+                        <div className='investment-symbol-header'>Symbol</div>
+                        <div className='investment-data-header'>
+                            <div className='investment-column-header'>Shares</div>
+                            <div className='investment-column-header'>Cost/Share</div>
+                            <div className='investment-column-header'>Value</div>
+                            <div className='investment-column-header'>Gain</div>
+                        </div>
+                    </div>
+                    <SymbolRows investments={this.state.investment_history}/>
+                </div>
             </React.Fragment>
         )
     }

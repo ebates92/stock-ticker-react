@@ -2,29 +2,16 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+  background-color: rgba(34,218,141,1);
+  padding: 1rem;
   color: white;
 }
 
 .App-title {
   font-size: 2rem;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  margin:0;
+  padding:0;
 }
 
 
@@ -35,10 +22,21 @@
   flex-direction: row;
   justify-content: space-between;
   text-align: center;
-  padding: 1rem;
-  font-size: 1.5rem;
-  background-color: grey;
+  padding: .5rem;
+  font-size: 1.3rem;
+  background-color: lightgray;
   color: white;
+}
+
+.nav > a {
+  color: white;
+}
+
+.nav > a:hover {
+  font-size: 1.5rem;
+  text-decoration: 700;
+  text-decoration: none;
+  transition-duration: .1s;
 }
 
 /* options */
@@ -47,9 +45,15 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 1rem;
+  padding: 2rem;
   align-content: center;
-  background-color: lightgray;
+  padding-bottom: 1.5rem;
+}
+
+button {
+  background-color: rgba(99,191,153,1);
+  border-radius: .5rem;
+  color: white;
 }
 
 .stock-select {

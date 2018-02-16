@@ -1,0 +1,41 @@
+.investments-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.investment-symbol-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: .5rem;
+    justify-content: space-between;
+    border-bottom: 2px solid black;
+    padding: .5rem;
+}
+
+.investment-symbol-header, .investment-symbol {
+    align-self: center;
+}
+
+.investment-data-header, .investment-data-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    align-content: center;
+}
+
+.investment-column-header, .investment-data {
+    align-self: center;
+}
+
+.investment-symbol {
+    font-size: 1.4rem;
+}
+
+.per-share {
+    font-size: .8rem;
+}
+
+.gain {
+    font-size: 1.1rem;
+}
