@@ -90,6 +90,12 @@ class App extends Component {
 
   // MAIN COMPONENTS
 
+    // stock dropdown
+    // stock performance =>
+    // stock sections =>
+    // stock section =>
+    // stock news
+
   StockPerformance = () => (
     <React.Fragment>
       <div className='options'>
@@ -106,7 +112,7 @@ class App extends Component {
 
   InvestmentApp = () => (
     <React.Fragment>
-            <Investments data={this.state.watching_data} />
+            <Investments data={this.state.investment_data} />
     </React.Fragment>
   )
 

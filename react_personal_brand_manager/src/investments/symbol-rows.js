@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
-const SymbolRows = () => {
+const SymbolRows = (props) => {
+    const symbolRowArray = (props) => {
 
+    }
 
     return (
         <div className="symbol-container">
