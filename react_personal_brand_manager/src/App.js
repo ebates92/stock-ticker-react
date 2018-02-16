@@ -24,12 +24,12 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Your Personal Stock App</h1>
+            {/* <img src={logo} className="App-logo" alt="logo" /> */}
+            <h1 className="App-title">MoneyTree</h1>
           </header>
           <div className='nav'>
-            <div className='stock performance'><Link to='/'>Stock Performance</Link></div>
-            <div className='Investments'><Link to='/investments'>Investments</Link></div>
+            <Link to='/'>Stock Performance</Link>
+            <Link to='/investments'>Investments</Link>
           </div>
 
           <Route exact path='/' component={this.StockPerformanceApp}/>
